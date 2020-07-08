@@ -3,8 +3,42 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme">
 
+        <Spinner
+            android:id="@+id/filterSpinner"
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            android:entries="@array/filter_entries"
+            />
+
+        <Spinner
+            android:id="@+id/sortSpinner"
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            android:entries="@array/sort_entries"/>
+
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            android:text="@string/arсhive"
+            android:textSize="24sp"/>
+
+        <CheckBox
+            android:id="@+id/archiveCheck"
+            android:layout_width="32dp"
+            android:layout_height="match_parent"
+            android:onClick="archiveClick"/>
+
+    </androidx.appcompat.widget.Toolbar>
 </LinearLayout>

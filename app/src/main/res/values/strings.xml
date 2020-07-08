@@ -1,3 +1,22 @@
 <resources>
     <string name="app_name">Bookmark</string>
+    <string name="search_title">Search</string>
+    <string name="reset_title">Reset</string>
+    <string name="filter_hint">Фильтр</string>
+    <string name="arсhive">Архивные:</string>
+    <string name="book_img">Обложка книги</string>
+    <string name="more_actions">More Actions</string>
+    <string-array name="filter_entries">
+        <item>Тэги</item>
+        <item>Авторы</item>
+        <item>Оценки</item>
+        <item>Года</item>
+        <item>Архив</item>
+    </string-array>
+    <string-array name="sort_entries">
+        <item>Сорт по…</item>
+        <item>Времени</item>
+        <item>Автору</item>
+        <item>Названию</item>
+    </string-array>
 </resources>
