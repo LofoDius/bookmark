@@ -6,7 +6,6 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
@@ -19,26 +18,33 @@
             android:id="@+id/filterSpinner"
             android:layout_width="120dp"
             android:layout_height="match_parent"
-            android:entries="@array/filter_entries"
-            />
+            android:entries="@array/filter_entries" />
 
         <Spinner
             android:id="@+id/sortSpinner"
             android:layout_width="120dp"
             android:layout_height="match_parent"
-            android:entries="@array/sort_entries"/>
+            android:entries="@array/sort_entries" />
 
         <TextView
             android:layout_width="120dp"
             android:layout_height="match_parent"
             android:text="@string/arсhive"
-            android:textSize="24sp"/>
+            android:textSize="20sp" />
 
         <CheckBox
             android:id="@+id/archiveCheck"
             android:layout_width="32dp"
             android:layout_height="match_parent"
-            android:onClick="archiveClick"/>
+            android:layout_marginEnd="20dp"
+            android:onClick="archiveClick" />
 
     </androidx.appcompat.widget.Toolbar>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:listitem="@layout/card" />
+
 </LinearLayout>
