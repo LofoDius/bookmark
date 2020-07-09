@@ -1,6 +1,7 @@
 package com.lofod.bookmark;
 
 import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,14 +15,21 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.chip.Chip;
 import com.google.android.material.chip.ChipGroup;
 
+import java.io.File;
 import java.util.ArrayList;
 
 public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardViewHolder> {
 
     ArrayList<Card> data;
+    File fileDir;
 
-    CardAdapter(ArrayList<Card> data) {
+    CardAdapter(ArrayList<Card> data, File fileDir) {
         this.data = data;
+        this.fileDir = fileDir;
+    }
+
+    public void setFileDir(File fileDir) {
+        this.fileDir = fileDir;
     }
 
     public void setData(ArrayList<Card> data) {
@@ -63,10 +71,12 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardViewHolder
         description.setText(data.get(position).description);
 
         ImageView bookImg = itemView.findViewById(R.id.bookImg);
-        if(data.get(position).imageUri.toString().equals("default")) {
+        if(data.get(position).bookImg.equals("default")) {
             bookImg.setImageBitmap(BitmapFactory.decodeResource(itemView.getResources(), R.drawable.bookImg));
         } else {
-            bookImg.setImageURI(data.get(position).imageUri);
+            File file = new File(fileDir, data.get(position).bookImg);
+            Uri imgUri = Uri.fromFile(file);
+            bookImg.setImageURI(imgUri);
         }
 
         RatingBar ratingBar = itemView.findViewById(R.id.ratingBar);

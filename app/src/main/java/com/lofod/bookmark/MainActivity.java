@@ -1,7 +1,6 @@
 package com.lofod.bookmark;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.view.MenuItemCompat;
 
 import android.os.Bundle;
 import android.view.Menu;
@@ -27,6 +26,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         // Spinner with filters
         List<String> filters = Arrays.asList(getResources().getStringArray(R.array.filter_entries));
         ArrayAdapter<String> filterAdapter = new ArrayAdapter<>(this, R.layout.fashionable_spinner_item, filters);
@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         getData();
 
         // RecyclerView
-        CardAdapter adapter = new CardAdapter(data);
+        CardAdapter adapter = new CardAdapter(data, getFilesDir());
         RecyclerView recyclerView = findViewById(R.id.list);
         recyclerView.setAdapter(adapter);
     }

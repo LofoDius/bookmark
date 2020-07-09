@@ -6,6 +6,16 @@
     <string name="arсhive">Архивные:</string>
     <string name="book_img">Обложка книги</string>
     <string name="more_actions">More Actions</string>
+    <string name="add_book_title">Создание/редактирование записи</string>
+    <string name="upload_image">upload image</string>
+    <string name="author_name">Имя</string>
+    <string name="author_second_name">Фамилия</string>
+    <string name="book_name">Название книги</string>
+    <string name="series_name">Название серии</string>
+    <string name="number_sign">№</string>
+    <string name="is_archived">Архив</string>
+    <string name="mark">Оценка:</string>
+    <string name="review">Рецензия:</string>
     <string-array name="filter_entries">
         <item>Тэги</item>
         <item>Авторы</item>
