@@ -13,9 +13,9 @@ public class Card implements Parcelable {
     String author;
     String seriesAndDate;
     String description;
-    ArrayList<String> tags;
-    int rating;
-    String bookImg; //  image name without path to it
+    ArrayList<String> tags = new ArrayList<>();
+    float rating;
+    String bookImg = "default"; //  image name without path to it
 
     public Card(String bookName, String author, String seriesAndDate, String description, ArrayList<String> tags, int rating, String bookImg) {
         this.bookName = bookName;
@@ -30,12 +30,12 @@ public class Card implements Parcelable {
     public Card(){}
 
     public Card(Parcel in) {
-        bookImg = in.readString();
+        bookName = in.readString();
         author = in.readString();
         seriesAndDate = in.readString();
         description = in.readString();
         tags = in.createStringArrayList();
-        rating = in.readInt();
+        rating = in.readFloat();
         bookImg = in.readString();
     }
 
@@ -51,7 +51,7 @@ public class Card implements Parcelable {
         parcel.writeString(seriesAndDate);
         parcel.writeString(description);
         parcel.writeStringList(tags);
-        parcel.writeInt(rating);
+        parcel.writeFloat(rating);
         parcel.writeString(bookImg);
     }
 

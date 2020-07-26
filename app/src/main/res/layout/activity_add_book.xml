@@ -121,24 +121,15 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/seriesName" />
 
-            <TextView
-                android:id="@+id/mark"
+            <RatingBar
+                android:id="@+id/bookRating"
+                style="@style/Widget.AppCompat.RatingBar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
-                android:text="@string/mark"
+                android:isIndicator="false"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/seriesName" />
-
-            <RatingBar
-                android:id="@+id/bookRating"
-                style="@style/Widget.AppCompat.RatingBar.Small"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="8dp"
-                app:layout_constraintStart_toEndOf="@+id/mark"
                 app:layout_constraintTop_toBottomOf="@+id/seriesName" />
 
             <TextView
@@ -156,14 +147,16 @@
 
             <EditText
                 android:id="@+id/review"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
                 android:ems="10"
                 android:gravity="start|top"
                 android:importantForAutofill="no"
                 android:inputType="textMultiLine"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/labelForReview" />
 
@@ -177,6 +170,9 @@
                 android:onClick="onClick"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                android:backgroundTint="@color/colorPrimary"
+                app:borderWidth="0dp"
+                app:rippleColor="@color/colorPrimary"
                 app:srcCompat="@drawable/ic_add_item" />
 
             <EditText
@@ -190,18 +186,20 @@
                 android:importantForAutofill="no"
                 android:inputType="date"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/mark" />
+                app:layout_constraintTop_toBottomOf="@+id/bookRating" />
 
             <EditText
                 android:id="@+id/editTags"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
                 android:ems="10"
                 android:hint="@string/inputTags"
                 android:importantForAutofill="no"
                 android:inputType="textPersonName"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/readDate" />
 

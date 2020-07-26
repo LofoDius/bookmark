@@ -43,7 +43,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardViewHolder
 
     public void addCard(Card card) {
         data.add(0, card);
-        notifyItemInserted(0);
+        notifyDataSetChanged();
     }
 
     public void removeCard(int position) {
@@ -76,7 +76,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardViewHolder
 
         ImageView bookImg = itemView.findViewById(R.id.bookImg);
         if (data.get(position).bookImg.equals("default")) {
-            bookImg.setImageBitmap(BitmapFactory.decodeResource(itemView.getResources(), R.drawable.bookImg));
+            bookImg.setImageBitmap(BitmapFactory.decodeResource(itemView.getResources(), R.drawable.book_img));
         } else {
             File file = new File(fileDir, data.get(position).bookImg + ".png");
             Uri imgUri = Uri.fromFile(file);
@@ -87,6 +87,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardViewHolder
         ratingBar.setRating(data.get(position).rating);
 
         ChipGroup chipGroup = itemView.findViewById(R.id.chipGroup);
+        chipGroup.removeAllViews();
 
         for (int i = 0; i < data.get(position).tags.size(); i++) {
             Chip chip = new Chip(itemView.getContext());
@@ -101,14 +102,14 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardViewHolder
         popupMenuBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                onPopupMenuClick(itemView);
+                onPopupMenuClick(itemView, position);
             }
         });
 
     }
 
-    public void onPopupMenuClick(View view) {
-        PopupMenu popup = new PopupMenu(view.getContext(), view);
+    public void onPopupMenuClick(View view, int pos) {
+        PopupMenu popup = new PopupMenu(view.getContext(), view.findViewById(R.id.popUp));
         MenuInflater inflater = popup.getMenuInflater();
         inflater.inflate(R.menu.popup_menu, popup.getMenu());
         popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {

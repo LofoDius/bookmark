@@ -24,6 +24,7 @@ import java.security.NoSuchAlgorithmException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.UUID;
 
 public class AddBookActivity extends AppCompatActivity {
@@ -105,12 +106,15 @@ public class AddBookActivity extends AppCompatActivity {
                     + authorSecondName.getText().toString();
             newCard.bookName = bookTitle.getText().toString();
             newCard.description = review.getText().toString();
-            newCard.rating = ratingBar.getNumStars();
+            newCard.rating = ratingBar.getRating();
             newCard.seriesAndDate = seriesName.getText().toString() + " №"
                     + editTextNumber.getText().toString() + " | " + readDate.getText().toString();
-            String[] tags = editTags.getText().toString().replaceAll(" ", "")
-                    .split(",");
-            newCard.tags = (ArrayList<String>)Arrays.asList(tags);
+            if (!editTags.getText().toString().equals("")) {
+                String[] tags = editTags.getText().toString().replaceAll(" ", "")
+                        .split(",");
+
+                Collections.addAll(newCard.tags, tags);
+            }
 
             Intent result = new Intent();
             result.putExtra("newCard", newCard);

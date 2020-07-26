@@ -54,14 +54,19 @@
         </androidx.recyclerview.widget.RecyclerView>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/floatingActionButton"
+            android:id="@+id/fabAddBook"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:clickable="true"
-            app:srcCompat="@drawable/ic_add_item"
             android:layout_gravity="bottom|end"
             android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"/>
+            android:layout_marginBottom="16dp"
+            android:clickable="true"
+            android:onClick="addBookClick"
+            android:tint="#FFFFFFFF"
+            android:backgroundTint="@color/colorPrimary"
+            app:borderWidth="0dp"
+            app:rippleColor="@color/colorPrimary"
+            app:srcCompat="@drawable/ic_add_item" />
     </FrameLayout>
 
 </LinearLayout>
