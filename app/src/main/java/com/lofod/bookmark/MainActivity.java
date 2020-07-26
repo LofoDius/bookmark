@@ -48,6 +48,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     }
 
     void getData() {
+
     }
 
     @Override
@@ -65,6 +66,10 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         Toast toast = Toast.makeText(this, "Working!", Toast.LENGTH_SHORT);
         toast.show();
         return true;
+    }
+
+    public void addBookClick(View view) {
+
     }
 
     @Override

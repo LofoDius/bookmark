@@ -3,13 +3,17 @@ package com.lofod.bookmark;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.view.LayoutInflater;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.PopupMenu;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.chip.Chip;
@@ -55,8 +59,8 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardViewHolder
     }
 
     @Override
-    public void onBindViewHolder(@NonNull CardViewHolder holder, int position) {
-        View itemView = holder.itemView;
+    public void onBindViewHolder(@NonNull CardViewHolder holder, final int position) {
+        final View itemView = holder.itemView;
 
         TextView bookName = itemView.findViewById(R.id.bookName);
         bookName.setText(data.get(position).bookName);
@@ -71,10 +75,10 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardViewHolder
         description.setText(data.get(position).description);
 
         ImageView bookImg = itemView.findViewById(R.id.bookImg);
-        if(data.get(position).bookImg.equals("default")) {
+        if (data.get(position).bookImg.equals("default")) {
             bookImg.setImageBitmap(BitmapFactory.decodeResource(itemView.getResources(), R.drawable.bookImg));
         } else {
-            File file = new File(fileDir, data.get(position).bookImg);
+            File file = new File(fileDir, data.get(position).bookImg + ".png");
             Uri imgUri = Uri.fromFile(file);
             bookImg.setImageURI(imgUri);
         }
@@ -92,6 +96,37 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardViewHolder
 
             chipGroup.addView(chip);
         }
+
+        ImageButton popupMenuBtn = itemView.findViewById(R.id.popUp);
+        popupMenuBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onPopupMenuClick(itemView);
+            }
+        });
+
+    }
+
+    public void onPopupMenuClick(View view) {
+        PopupMenu popup = new PopupMenu(view.getContext(), view);
+        MenuInflater inflater = popup.getMenuInflater();
+        inflater.inflate(R.menu.popup_menu, popup.getMenu());
+        popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.editCard:
+
+                        return true;
+                    case R.id.deleteCard:
+
+                        return true;
+                    default:
+                        return false;
+                }
+            }
+        });
+        popup.show();
 
     }
 

@@ -16,6 +16,12 @@
     <string name="is_archived">Архив</string>
     <string name="mark">Оценка:</string>
     <string name="review">Рецензия:</string>
+    <string name="authorNameError">Расскажите, пожалуйста, каким именем звала автора его матушка</string>
+    <string name="bookTitleError">Нам бы не хотелось, чтобы творчество столь великого творца осталось безымянным</string>
+    <string name="readedDate">Дата прочтения</string>
+    <string name="inputTags">Введите тэги через запятую</string>
+    <string name="delete_elem">Удалить</string>
+    <string name="edit_elem">Редактировать</string>
     <string-array name="filter_entries">
         <item>Тэги</item>
         <item>Авторы</item>
